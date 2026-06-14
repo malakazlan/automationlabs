@@ -17,6 +17,7 @@ import base64
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -67,16 +68,25 @@ def generate_one(key: str, model: str, prompt: str, size: str, quality: str,
         data=json.dumps(body).encode(),
         headers={"Content-Type": "application/json", "Authorization": f"Bearer {key}"},
     )
-    try:
-        resp = urllib.request.urlopen(req, timeout=180)
-    except urllib.error.HTTPError as e:
-        detail = e.read().decode(errors="replace")
-        raise SystemExit(
-            f"\nOpenAI API error {e.code} for '{out_path.stem}':\n{detail}\n\n"
-            f"If this mentions verification, enable API Org Verification in your\n"
-            f"OpenAI account settings. If it mentions the model, try a different\n"
-            f"--model (gpt-image-1.5 or gpt-image-1)."
-        )
+    last_err = None
+    for attempt in range(1, 4):
+        try:
+            resp = urllib.request.urlopen(req, timeout=180)
+            break
+        except urllib.error.HTTPError as e:
+            detail = e.read().decode(errors="replace")
+            raise SystemExit(
+                f"\nOpenAI API error {e.code} for '{out_path.stem}':\n{detail}\n\n"
+                f"If this mentions verification, enable API Org Verification in your\n"
+                f"OpenAI account settings. If it mentions the model, try a different\n"
+                f"--model (gpt-image-1.5 or gpt-image-1)."
+            )
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last_err = e
+            print(f"    network issue (attempt {attempt}/3): {e}. retrying...")
+            time.sleep(4 * attempt)
+    else:
+        raise SystemExit(f"\nNetwork error for '{out_path.stem}' after 3 attempts: {last_err}")
     result = json.loads(resp.read())
     img = base64.b64decode(result["data"][0]["b64_json"])
     out_path.write_bytes(img)
