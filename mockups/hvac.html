@@ -19,32 +19,20 @@
   <section class="relative overflow-hidden pt-[108px] pb-20 sm:pt-[132px]">
     <div class="relative mx-auto grid max-w-content items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.02fr_.98fr]">
       <div class="reveal">
-        <nav class="flex items-center gap-2 text-xs font-medium text-ink/45">
-          <a href="industries.html" class="hover:text-ink">Industries</a>
-          <i class="ph ph-caret-right"></i>
-          <span class="text-ink/70">HVAC</span>
-        </nav>
+        <nav class="flex items-center gap-2 text-xs font-medium text-ink/45"><a href="industries.html" class="hover:text-ink">Industries</a><i class="ph ph-caret-right"></i><span class="text-ink/70">HVAC</span></nav>
         <span class="mt-5 inline-flex items-center gap-2 rounded-full bg-cobalt-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cobalt-dark">AI receptionist for HVAC</span>
-        <h1 class="mt-5 font-display text-[2.7rem] font-semibold leading-[1.0] tracking-tight text-ink sm:text-6xl">
-          Never miss another HVAC call.
-        </h1>
-        <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink/70 sm:text-xl">
-          Your AI agent answers in two rings, sounds human, and books the job into your CRM. Nights, weekends, and the busy season included.
-        </p>
+        <h1 class="mt-5 font-display text-[2.7rem] font-semibold leading-[1.0] tracking-tight text-ink sm:text-6xl">Never miss another HVAC call.</h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink/70 sm:text-xl">Your AI agent answers in two rings, sounds human, and books the job into your CRM. Nights, weekends, and the busy season included.</p>
         <div class="mt-8 flex flex-wrap items-center gap-3">
           <a href="book-a-demo.html" class="btn rounded-xl bg-cobalt px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cobalt/20 hover:bg-cobalt-dark">Book a demo</a>
           <a href="#demo" class="btn rounded-xl border border-ink/15 bg-white px-6 py-3.5 text-sm font-semibold text-ink hover:border-ink/30"><i class="ph-fill ph-play-circle align-middle text-cobalt"></i> Hear the agent</a>
         </div>
       </div>
-
       <div class="reveal" style="transition-delay:.08s">
         <div class="js-tilt overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-2xl shadow-ink/10">
           <img src="assets/hvac-hero.png" alt="HVAC technician servicing an air-conditioning unit" class="h-[360px] w-full object-cover sm:h-[460px]" />
           <div class="flex items-center justify-between gap-3 border-t border-ink/10 bg-white px-5 py-4">
-            <div class="flex items-center gap-3">
-              <span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt-soft text-cobalt-dark"><i class="ph-fill ph-wind"></i></span>
-              <div><p class="text-sm font-semibold text-ink">AC tune-up booked</p><p class="font-mono text-xs text-ink/55">ServiceTitan, Wed 8:00 AM</p></div>
-            </div>
+            <div class="flex items-center gap-3"><span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt-soft text-cobalt-dark"><i class="ph-fill ph-wind"></i></span><div><p class="text-sm font-semibold text-ink">AC tune-up booked</p><p class="font-mono text-xs text-ink/55">ServiceTitan, Wed 8:00 AM</p></div></div>
             <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Live</span>
           </div>
         </div>
@@ -72,58 +60,102 @@
     </div>
   </section>
 
-  <!-- INTEGRATIONS -->
-  <section class="border-y border-ink/10 bg-white py-14">
-    <div class="mx-auto max-w-content px-5 sm:px-8">
-      <p class="text-center text-xs font-semibold uppercase tracking-[0.16em] text-ink/45">Books straight into your HVAC software</p>
-      <div class="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-ink/55">
-        <span class="text-lg font-semibold tracking-tight">ServiceTitan</span>
-        <span class="text-lg font-semibold tracking-tight">Housecall Pro</span>
-        <span class="text-lg font-semibold tracking-tight">Jobber</span>
-        <span class="text-lg font-semibold tracking-tight">Google Calendar</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section id="how" class="py-28">
+  <!-- CALL-FLOW WALKTHROUGH -->
+  <section id="how" class="border-y border-ink/10 bg-white py-28">
     <div class="mx-auto max-w-content px-5 sm:px-8">
       <div class="reveal max-w-2xl">
         <span class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">How it works</span>
-        <h2 class="mt-5 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">From ring to booked job in one call.</h2>
+        <h2 class="mt-5 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">Watch one HVAC call go from ring to booked job.</h2>
       </div>
-      <div class="mt-16 space-y-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10">
-        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10">
-          <span class="font-mono text-3xl font-semibold text-cobalt/40">01</span>
-          <div><h3 class="font-display text-2xl font-semibold text-ink">A call comes in</h3><p class="mt-1 text-ink/65">Day, night, weekend, holiday. The agent answers in two rings.</p></div>
-          <i class="ph ph-phone-incoming text-3xl text-cobalt"></i>
+      <div class="mt-12 grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div class="reveal">
+          <ol class="space-y-2">
+            <li class="rounded-2xl border border-cobalt/30 bg-cobalt-soft p-5"><div class="flex items-center gap-3"><span class="font-mono text-sm font-semibold text-cobalt-dark">01</span><i class="ph-fill ph-phone-incoming text-xl text-cobalt-dark"></i><h3 class="font-display text-lg font-semibold text-ink">Answers in two rings</h3></div></li>
+            <li class="rounded-2xl border border-ink/10 bg-paper p-5"><div class="flex items-center gap-3"><span class="font-mono text-sm font-semibold text-cobalt">02</span><i class="ph ph-ear text-xl text-cobalt"></i><h3 class="font-display text-lg font-semibold text-ink">Understands the problem</h3></div></li>
+            <li class="rounded-2xl border border-ink/10 bg-paper p-5"><div class="flex items-center gap-3"><span class="font-mono text-sm font-semibold text-cobalt">03</span><i class="ph ph-clipboard-text text-xl text-cobalt"></i><h3 class="font-display text-lg font-semibold text-ink">Qualifies the job</h3></div></li>
+            <li class="rounded-2xl border border-ink/10 bg-paper p-5"><div class="flex items-center gap-3"><span class="font-mono text-sm font-semibold text-cobalt">04</span><i class="ph ph-calendar-check text-xl text-cobalt"></i><h3 class="font-display text-lg font-semibold text-ink">Books the appointment</h3></div></li>
+            <li class="rounded-2xl border border-ink/10 bg-paper p-5"><div class="flex items-center gap-3"><span class="font-mono text-sm font-semibold text-cobalt">05</span><i class="ph ph-arrows-clockwise text-xl text-cobalt"></i><h3 class="font-display text-lg font-semibold text-ink">Confirms and syncs your CRM</h3></div></li>
+          </ol>
         </div>
-        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10" style="transition-delay:.05s">
-          <span class="font-mono text-3xl font-semibold text-cobalt/40">02</span>
-          <div><h3 class="font-display text-2xl font-semibold text-ink">It qualifies the job</h3><p class="mt-1 text-ink/65">Repair or install, make and model, urgency. It asks what a good dispatcher would.</p></div>
-          <i class="ph ph-clipboard-text text-3xl text-cobalt"></i>
-        </div>
-        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10" style="transition-delay:.1s">
-          <span class="font-mono text-3xl font-semibold text-cobalt/40">03</span>
-          <div><h3 class="font-display text-2xl font-semibold text-ink">It books the appointment</h3><p class="mt-1 text-ink/65">Checks your availability and schedules the visit while the caller is still on the line.</p></div>
-          <i class="ph ph-calendar-check text-3xl text-cobalt"></i>
-        </div>
-        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10" style="transition-delay:.15s">
-          <span class="font-mono text-3xl font-semibold text-cobalt/40">04</span>
-          <div><h3 class="font-display text-2xl font-semibold text-ink">It syncs to your CRM</h3><p class="mt-1 text-ink/65">The job, contact, and call summary land in ServiceTitan, Jobber, or Housecall Pro automatically.</p></div>
-          <i class="ph ph-arrows-clockwise text-3xl text-cobalt"></i>
+        <div class="reveal" style="transition-delay:.08s">
+          <div class="overflow-hidden rounded-3xl border border-ink/10 bg-white">
+            <div class="flex items-center justify-between gap-3 border-b border-ink/10 bg-paper px-5 py-4">
+              <div class="flex items-center gap-3"><span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt text-white"><i class="ph-fill ph-waveform"></i></span><div><p class="text-sm font-semibold text-ink">Sample call</p><p class="font-mono text-xs text-ink/50">AC not cooling</p></div></div>
+              <div class="flex items-center gap-3"><button class="btn grid h-9 w-9 place-items-center rounded-full bg-cobalt text-white hover:bg-cobalt-dark" aria-label="Play sample call"><i class="ph-fill ph-play"></i></button><span class="font-mono text-xs text-ink/45">0:51</span></div>
+            </div>
+            <div class="space-y-4 p-5 sm:p-6">
+              <div class="flex gap-3"><span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-cobalt-soft text-cobalt-dark"><i class="ph-fill ph-robot text-sm"></i></span><div class="rounded-2xl rounded-tl-sm bg-cobalt-soft px-4 py-2.5 text-sm text-ink">Thanks for calling Northline Heating and Air. How can I help?</div></div>
+              <div class="flex justify-end gap-3"><div class="rounded-2xl rounded-tr-sm bg-paper px-4 py-2.5 text-sm text-ink/80">My AC stopped cooling and the house is getting warm.</div><span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-ink/10 text-ink/50"><i class="ph-fill ph-user text-sm"></i></span></div>
+              <div class="flex gap-3"><span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-cobalt-soft text-cobalt-dark"><i class="ph-fill ph-robot text-sm"></i></span><div class="rounded-2xl rounded-tl-sm bg-cobalt-soft px-4 py-2.5 text-sm text-ink">Is it running but blowing warm air, or not turning on at all?</div></div>
+              <div class="flex justify-end gap-3"><div class="rounded-2xl rounded-tr-sm bg-paper px-4 py-2.5 text-sm text-ink/80">It runs but blows warm. It's a Carrier, about eight years old.</div><span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-ink/10 text-ink/50"><i class="ph-fill ph-user text-sm"></i></span></div>
+              <div class="flex gap-3"><span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-cobalt-soft text-cobalt-dark"><i class="ph-fill ph-robot text-sm"></i></span><div class="rounded-2xl rounded-tl-sm bg-cobalt-soft px-4 py-2.5 text-sm text-ink">I can get a tech out tomorrow 8 to 10 AM, or today at 4 PM. Which works?</div></div>
+              <div class="flex justify-end gap-3"><div class="rounded-2xl rounded-tr-sm bg-paper px-4 py-2.5 text-sm text-ink/80">Tomorrow morning is good.</div><span class="mt-1 grid h-7 w-7 flex-shrink-0 place-items-center rounded-full bg-ink/10 text-ink/50"><i class="ph-fill ph-user text-sm"></i></span></div>
+            </div>
+            <div class="flex items-center justify-between gap-3 border-t border-ink/10 bg-paper px-5 py-3"><span class="inline-flex items-center gap-2 text-xs font-semibold text-emerald-700"><i class="ph-fill ph-check-circle"></i> Job booked, synced to ServiceTitan</span><span class="font-mono text-xs text-ink/45">Wed 8:00 AM</span></div>
+          </div>
+          <p class="mt-3 text-xs text-ink/45">Sample conversation for illustration. Real calls vary.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OUTCOMES / PROOF -->
+  <!-- WHOLE FRONT OFFICE -->
+  <section class="py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">Not just answering. Your whole front office.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-ink/70">The agent runs the HVAC front desk end to end, so your techs stay on the job and nothing slips.</p>
+      </div>
+      <div class="reveal mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-phone-incoming text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Answer every call</h3><p class="mt-1 text-sm text-ink/65">Two-ring pickup, 24/7, in your business name.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-clipboard-text text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Qualify the job</h3><p class="mt-1 text-sm text-ink/65">Repair or install, make, model, and urgency.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-calendar-check text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Book the appointment</h3><p class="mt-1 text-sm text-ink/65">Real open slots, locked in on the call.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-phone-transfer text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Route emergencies</h3><p class="mt-1 text-sm text-ink/65">No heat or a gas smell goes to your on-call tech.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-bell-ringing text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Follow up and remind</h3><p class="mt-1 text-sm text-ink/65">Confirmations and reminders cut no-shows.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-star text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Request reviews</h3><p class="mt-1 text-sm text-ink/65">Asks happy customers for a Google review.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-chat-text text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Summarize to your team</h3><p class="mt-1 text-sm text-ink/65">Transcript and summary after every call.</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-6"><span class="grid h-11 w-11 place-items-center rounded-xl bg-cobalt-soft text-cobalt-dark"><i class="ph-duotone ph-moon-stars text-2xl"></i></span><h3 class="mt-4 font-semibold text-ink">Work after hours</h3><p class="mt-1 text-sm text-ink/65">Nights, weekends, holidays, peak season.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTEGRATIONS -->
   <section class="border-y border-ink/10 bg-white py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">Books straight into your HVAC software.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-ink/70">No rip and replace, no new phone system. The agent writes the job where your team already works.</p>
+      </div>
+      <div class="reveal mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-ink/10 bg-paper p-6"><p class="text-xs font-semibold uppercase tracking-wider text-ink/40">CRM and field service</p><p class="mt-3 text-lg font-semibold tracking-tight text-ink">ServiceTitan</p><p class="text-lg font-semibold tracking-tight text-ink">Housecall Pro</p><p class="text-lg font-semibold tracking-tight text-ink">Jobber</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-paper p-6"><p class="text-xs font-semibold uppercase tracking-wider text-ink/40">Calendar</p><p class="mt-3 text-lg font-semibold tracking-tight text-ink">Google Calendar</p><p class="text-lg font-semibold tracking-tight text-ink">Outlook</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-paper p-6"><p class="text-xs font-semibold uppercase tracking-wider text-ink/40">Phone</p><p class="mt-3 text-lg font-semibold tracking-tight text-ink">Any number</p><p class="text-sm text-ink/55">Forward your line, keep it.</p></div>
+        <div class="rounded-2xl border border-cobalt/30 bg-cobalt-soft p-6"><p class="text-xs font-semibold uppercase tracking-wider text-cobalt-dark">And more</p><p class="mt-3 text-ink/70">Do not see your tool? We connect new systems on request.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS BAND -->
+  <section class="bg-ink py-20 text-paper">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <h2 class="font-display text-3xl font-semibold tracking-tight sm:text-4xl">What that adds up to.</h2>
+        <span class="rounded bg-white/10 px-2 py-1 text-[11px] font-medium text-paper/60">Illustrative figures</span>
+      </div>
+      <div class="reveal mt-10 grid gap-10 border-t border-white/10 pt-10 sm:grid-cols-4">
+        <div><p class="font-mono text-4xl font-semibold text-cobalt sm:text-5xl">12</p><p class="mt-2 text-sm text-paper/60">HVAC teams live</p></div>
+        <div><p class="font-mono text-4xl font-semibold text-cobalt sm:text-5xl">96%</p><p class="mt-2 text-sm text-paper/60">of calls answered</p></div>
+        <div><p class="font-mono text-4xl font-semibold text-cobalt sm:text-5xl">48h</p><p class="mt-2 text-sm text-paper/60">average time to live</p></div>
+        <div><p class="font-mono text-4xl font-semibold text-cobalt sm:text-5xl">2</p><p class="mt-2 text-sm text-paper/60">rings to answer</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF -->
+  <section class="py-28">
     <div class="mx-auto grid max-w-content items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.15fr_.85fr]">
       <figure class="reveal">
-        <blockquote class="font-display text-3xl font-medium leading-[1.15] tracking-tight text-ink sm:text-4xl">
-          "Summer rush used to mean voicemail full by noon. Now every caller gets answered and booked. We added a second crew."
-        </blockquote>
+        <blockquote class="font-display text-3xl font-medium leading-[1.15] tracking-tight text-ink sm:text-4xl">"Summer rush used to mean voicemail full by noon. Now every caller gets answered and booked. We added a second crew."</blockquote>
         <figcaption class="mt-6 text-ink/70"><span class="font-semibold text-ink">Marcus Hale</span>, Owner, Cedar Ridge Heating and Cooling <span class="ml-1 rounded bg-ink/5 px-1.5 py-0.5 text-[11px] font-medium text-ink/50">Illustrative</span></figcaption>
         <div class="mt-10 grid grid-cols-3 gap-6 border-t border-ink/15 pt-8">
           <div><p class="font-mono text-3xl font-semibold text-cobalt">11</p><p class="mt-1 text-sm text-ink/60">jobs booked, week one</p></div>
@@ -137,35 +169,80 @@
     </div>
   </section>
 
+  <!-- COMPARISON -->
+  <section class="border-y border-ink/10 bg-white py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">Why not just voicemail or an answering service?</h2>
+      </div>
+      <div class="reveal mt-12 overflow-x-auto">
+        <table class="w-full min-w-[720px] border-separate border-spacing-0 text-left text-sm">
+          <thead>
+            <tr class="text-ink/55">
+              <th class="px-5 py-4 font-medium">Capability</th>
+              <th class="px-5 py-4 text-center font-medium">Voicemail</th>
+              <th class="px-5 py-4 text-center font-medium">Human receptionist</th>
+              <th class="px-5 py-4 text-center font-medium">Answering service</th>
+              <th class="rounded-t-2xl bg-cobalt-soft px-5 py-4 text-center font-semibold text-cobalt-dark">Simple Automation Labs</th>
+            </tr>
+          </thead>
+          <tbody class="text-ink/80">
+            <tr>
+              <td class="border-t border-ink/10 px-5 py-4 font-medium text-ink">Answers 24/7</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center"><i class="ph ph-x text-ink/30"></i></td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center text-xs">Business hours</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center"><i class="ph-fill ph-check-circle text-emerald-600"></i></td>
+              <td class="border-x border-ink/10 bg-cobalt-soft/50 px-5 py-4 text-center"><i class="ph-fill ph-check-circle text-cobalt"></i></td>
+            </tr>
+            <tr>
+              <td class="border-t border-ink/10 px-5 py-4 font-medium text-ink">Picks up in two rings</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center"><i class="ph ph-x text-ink/30"></i></td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center text-xs">If free</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center text-xs">Often holds</td>
+              <td class="border-x border-ink/10 bg-cobalt-soft/50 px-5 py-4 text-center"><i class="ph-fill ph-check-circle text-cobalt"></i></td>
+            </tr>
+            <tr>
+              <td class="border-t border-ink/10 px-5 py-4 font-medium text-ink">Books into your CRM</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center"><i class="ph ph-x text-ink/30"></i></td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center text-xs">Manually</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center text-xs">Sometimes</td>
+              <td class="border-x border-ink/10 bg-cobalt-soft/50 px-5 py-4 text-center"><i class="ph-fill ph-check-circle text-cobalt"></i></td>
+            </tr>
+            <tr>
+              <td class="border-t border-ink/10 px-5 py-4 font-medium text-ink">Knows your pricing and area</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center"><i class="ph ph-x text-ink/30"></i></td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center text-xs">If trained</td>
+              <td class="border-t border-ink/10 px-5 py-4 text-center"><i class="ph ph-x text-ink/30"></i></td>
+              <td class="border-x border-ink/10 bg-cobalt-soft/50 px-5 py-4 text-center"><i class="ph-fill ph-check-circle text-cobalt"></i></td>
+            </tr>
+            <tr>
+              <td class="border-y border-ink/10 px-5 py-4 font-medium text-ink">Typical monthly cost</td>
+              <td class="border-y border-ink/10 px-5 py-4 text-center font-mono text-xs">Free</td>
+              <td class="border-y border-ink/10 px-5 py-4 text-center font-mono text-xs">$3,500+</td>
+              <td class="border-y border-ink/10 px-5 py-4 text-center font-mono text-xs">$1-2/min</td>
+              <td class="rounded-b-2xl border-x border-b border-ink/10 bg-cobalt-soft/50 px-5 py-4 text-center font-mono text-xs font-semibold text-cobalt-dark">From $1,500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="py-28">
     <div class="mx-auto max-w-content px-5 sm:px-8">
-      <div class="reveal max-w-2xl">
-        <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">HVAC questions, answered.</h2>
-      </div>
+      <div class="reveal max-w-2xl"><h2 class="font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">HVAC questions, answered.</h2></div>
       <div class="reveal mt-10 divide-y divide-ink/10 overflow-hidden rounded-3xl border border-ink/10 bg-white">
-        <details class="group p-6 sm:p-7" open>
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">Does it work after hours and on weekends?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary>
-          <p class="mt-3 text-ink/65">Yes. The agent answers every hour of every day, including holidays and the busy season.</p>
-        </details>
-        <details class="group p-6 sm:p-7">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">Will it book into my CRM?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary>
-          <p class="mt-3 text-ink/65">Yes. It schedules the job into ServiceTitan, Housecall Pro, Jobber, or Google Calendar while the caller is still on the line.</p>
-        </details>
-        <details class="group p-6 sm:p-7">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">Can it transfer urgent calls to a person?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary>
-          <p class="mt-3 text-ink/65">Yes. You set the rules. Emergencies and complex jobs route straight to your on-call tech.</p>
-        </details>
-        <details class="group p-6 sm:p-7">
-          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">How long does setup take?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary>
-          <p class="mt-3 text-ink/65">Most HVAC teams are live within 48 hours, with no changes to your phone system.</p>
-        </details>
+        <details class="group p-6 sm:p-7" open><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">Does it work after hours and on weekends?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary><p class="mt-3 text-ink/65">Yes. The agent answers every hour of every day, including holidays and the busy season.</p></details>
+        <details class="group p-6 sm:p-7"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">Will it book into my CRM?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary><p class="mt-3 text-ink/65">Yes. It schedules the job into ServiceTitan, Housecall Pro, Jobber, or Google Calendar while the caller is still on the line.</p></details>
+        <details class="group p-6 sm:p-7"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">Can it transfer urgent calls to a person?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary><p class="mt-3 text-ink/65">Yes. You set the rules. Emergencies and complex jobs route straight to your on-call tech.</p></details>
+        <details class="group p-6 sm:p-7"><summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-ink">How long does setup take?<i class="ph ph-plus text-cobalt transition-transform group-open:rotate-45"></i></summary><p class="mt-3 text-ink/65">Most HVAC teams are live within 48 hours, with no changes to your phone system.</p></details>
       </div>
     </div>
   </section>
 
   <!-- DEMO BAND -->
-  <section id="demo" class="pb-28">
+  <section id="demo" class="border-t border-ink/10 bg-white pb-28 pt-10">
     <div class="mx-auto max-w-content px-5 sm:px-8">
       <div class="reveal overflow-hidden rounded-3xl bg-ink text-paper">
         <div class="grid gap-10 p-10 sm:p-14 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
@@ -178,22 +255,9 @@
             </div>
           </div>
           <div class="rounded-2xl border border-paper/15 bg-white/[0.04] p-6">
-            <div class="flex items-center justify-between border-b border-paper/15 pb-4">
-              <div class="flex items-center gap-2.5">
-                <span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt/20 text-cobalt"><i class="ph-fill ph-phone-incoming"></i></span>
-                <div><p class="text-sm font-semibold text-paper">Call in progress</p><p class="font-mono text-xs text-paper/50">AC repair, sample call</p></div>
-              </div>
-              <span class="font-mono text-xs text-cobalt">00:51</span>
-            </div>
+            <div class="flex items-center justify-between border-b border-paper/15 pb-4"><div class="flex items-center gap-2.5"><span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt/20 text-cobalt"><i class="ph-fill ph-phone-incoming"></i></span><div><p class="text-sm font-semibold text-paper">Call in progress</p><p class="font-mono text-xs text-paper/50">AC repair, sample call</p></div></div><span class="font-mono text-xs text-cobalt">00:51</span></div>
             <div class="mt-6 flex h-20 items-end justify-center gap-1.5" aria-hidden="true">
-              <span class="bar w-2 rounded-full bg-cobalt" style="height:65%"></span>
-              <span class="bar w-2 rounded-full bg-cobalt" style="height:92%;animation-delay:.1s"></span>
-              <span class="bar w-2 rounded-full bg-cobalt/70" style="height:48%;animation-delay:.2s"></span>
-              <span class="bar w-2 rounded-full bg-cobalt" style="height:100%;animation-delay:.05s"></span>
-              <span class="bar w-2 rounded-full bg-cobalt/70" style="height:58%;animation-delay:.25s"></span>
-              <span class="bar w-2 rounded-full bg-cobalt" style="height:82%;animation-delay:.15s"></span>
-              <span class="bar w-2 rounded-full bg-cobalt/60" style="height:42%;animation-delay:.3s"></span>
-              <span class="bar w-2 rounded-full bg-cobalt" style="height:78%;animation-delay:.08s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt" style="height:65%"></span><span class="bar w-2 rounded-full bg-cobalt" style="height:92%;animation-delay:.1s"></span><span class="bar w-2 rounded-full bg-cobalt/70" style="height:48%;animation-delay:.2s"></span><span class="bar w-2 rounded-full bg-cobalt" style="height:100%;animation-delay:.05s"></span><span class="bar w-2 rounded-full bg-cobalt/70" style="height:58%;animation-delay:.25s"></span><span class="bar w-2 rounded-full bg-cobalt" style="height:82%;animation-delay:.15s"></span><span class="bar w-2 rounded-full bg-cobalt/60" style="height:42%;animation-delay:.3s"></span><span class="bar w-2 rounded-full bg-cobalt" style="height:78%;animation-delay:.08s"></span>
             </div>
             <button class="btn mt-5 inline-flex items-center gap-2 text-sm font-semibold text-paper"><i class="ph-fill ph-play-circle text-2xl text-cobalt"></i> Play a sample call</button>
           </div>
