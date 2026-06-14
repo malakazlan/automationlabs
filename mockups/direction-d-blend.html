@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Automation Labs - Blend (Operator x Dispatch)</title>
+<meta name="description" content="AI voice agents that answer every call and book the job. Blended design direction mockup." />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+        },
+        colors: {
+          paper: '#F6F4F0',
+          ink: '#191714',
+          cobalt: { DEFAULT: '#1D4ED8', dark: '#1E3FAE', soft: '#EAEEFB' },
+        },
+        maxWidth: { content: '1200px' },
+      },
+    },
+  }
+</script>
+<style>
+  :root { --ease-out: cubic-bezier(.23, 1, .32, 1); }
+  html { scroll-behavior: smooth; }
+  body { background: #F6F4F0; color: #191714; -webkit-font-smoothing: antialiased; }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .75s var(--ease-out), transform .75s var(--ease-out); }
+  .reveal.in { opacity: 1; transform: none; }
+  .btn { transition: transform .16s var(--ease-out), background-color .2s ease, border-color .2s ease, box-shadow .2s ease; }
+  .btn:active { transform: scale(.97); }
+  .lift { transition: transform .25s var(--ease-out), box-shadow .25s var(--ease-out); }
+  @media (hover:hover){ .lift:hover { transform: translateY(-3px); } }
+  .bar { animation: pulse 1.1s var(--ease-out) infinite alternate; transform-origin: bottom; }
+  @keyframes pulse { from { transform: scaleY(.35); } to { transform: scaleY(1); } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity:1 !important; transform:none !important; transition:none; }
+    .btn,.lift { transition:none; }
+    .bar { animation:none; transform:scaleY(.7); }
+  }
+</style>
+</head>
+<body class="font-sans antialiased selection:bg-cobalt/15">
+
+  <div id="top-sentinel" class="absolute top-0 h-px w-px"></div>
+
+  <!-- NAV -->
+  <header id="nav" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+    <div class="mx-auto flex h-[70px] max-w-content items-center justify-between px-5 sm:px-8">
+      <a href="#" class="flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-ink">
+        <span class="grid h-8 w-8 place-items-center rounded-lg bg-cobalt text-white"><i class="ph-fill ph-waveform text-lg"></i></span>
+        Simple Automation Labs
+      </a>
+      <nav class="hidden items-center gap-8 text-sm font-medium text-ink/65 lg:flex">
+        <a href="#how" class="transition-colors hover:text-ink">How it works</a>
+        <a href="#industries" class="transition-colors hover:text-ink">Industries</a>
+        <a href="#pricing" class="transition-colors hover:text-ink">Pricing</a>
+        <a href="#demo" class="transition-colors hover:text-ink">Demo</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <a href="tel:+16125551234" class="hidden text-sm font-medium text-ink/65 transition-colors hover:text-ink sm:block"><i class="ph ph-phone align-middle"></i> (612) 555-1234</a>
+        <a href="#demo" class="btn rounded-xl bg-cobalt px-4 py-2.5 text-sm font-semibold text-white hover:bg-cobalt-dark">Book a demo</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden pt-[118px] pb-20 sm:pt-[140px]">
+    <div class="relative mx-auto grid max-w-content items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_.95fr]">
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 rounded-full bg-cobalt-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cobalt-dark">AI voice agents for home services</span>
+        <h1 class="mt-6 font-display text-[2.9rem] font-semibold leading-[0.98] tracking-tight text-ink sm:text-[4.5rem]">
+          Answer every call.<br>Book every job.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink/70 sm:text-xl">
+          An AI voice agent that answers in two rings, sounds human, and books the job straight into your CRM. Around the clock.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center gap-3">
+          <a href="#demo" class="btn rounded-xl bg-cobalt px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-cobalt/20 hover:bg-cobalt-dark">Book a demo</a>
+          <a href="#demo" class="btn rounded-xl border border-ink/15 bg-white px-6 py-3.5 text-sm font-semibold text-ink hover:border-ink/30"><i class="ph-fill ph-play-circle align-middle text-cobalt"></i> Hear the agent</a>
+        </div>
+      </div>
+
+      <div class="reveal lift relative" style="transition-delay:.08s">
+        <div class="overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-2xl shadow-ink/10">
+          <img src="https://picsum.photos/seed/hvac-tech-service-call/820/640" alt="Home services technician at work" class="h-[360px] w-full object-cover sm:h-[460px]" />
+          <div class="flex items-center justify-between gap-3 border-t border-ink/10 bg-white px-5 py-4">
+            <div class="flex items-center gap-3">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt-soft text-cobalt-dark"><i class="ph-fill ph-phone-incoming"></i></span>
+              <div><p class="text-sm font-semibold text-ink">Incoming call answered</p><p class="font-mono text-xs text-ink/55">Booked: Tue, 9:00 AM</p></div>
+            </div>
+            <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">Live</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO STRIP -->
+  <section class="border-y border-ink/10 bg-white/55 py-8">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <p class="text-center text-xs font-semibold uppercase tracking-[0.16em] text-ink/45">Books into the tools you already run</p>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-ink/55">
+        <span class="text-lg font-semibold tracking-tight">ServiceTitan</span>
+        <span class="text-lg font-semibold tracking-tight">Housecall Pro</span>
+        <span class="text-lg font-semibold tracking-tight">Jobber</span>
+        <span class="text-lg font-semibold tracking-tight">Google Calendar</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- COST OF MISSED CALLS -->
+  <section class="py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-3xl">
+        <span class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">The cost of missed calls</span>
+        <h2 class="mt-5 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-5xl">A missed call is not a missed call. It is a lost customer.</h2>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink/70">Most home-services businesses miss one in four calls, and after hours it gets worse. Every one is a job that goes to whoever picks up first.</p>
+      </div>
+      <div class="reveal mt-14 grid gap-10 border-t border-ink/15 pt-10 sm:grid-cols-3" style="transition-delay:.06s">
+        <div><p class="font-mono text-5xl font-semibold text-cobalt">27%</p><p class="mt-3 text-ink/60">of calls go unanswered. Industry estimate.</p></div>
+        <div><p class="font-mono text-5xl font-semibold text-cobalt">2</p><p class="mt-3 text-ink/60">rings to answer, every single time.</p></div>
+        <div><p class="font-mono text-5xl font-semibold text-cobalt">$1.5k</p><p class="mt-3 text-ink/60">average job value walking away.</p></div>
+      </div>
+      <a href="#demo" class="btn reveal mt-10 inline-flex items-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-paper hover:bg-ink/90">Calculate what missed calls cost you <i class="ph ph-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- WHAT THE AGENT HANDLES -->
+  <section class="border-y border-ink/10 bg-white py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">A receptionist that never takes a day off.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-ink/70">The agent does the front-desk work, so your team stays on the tools and your callers never hit voicemail.</p>
+      </div>
+      <div class="reveal mt-12 grid gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-3" style="transition-delay:.05s">
+        <div class="bg-white p-7"><i class="ph ph-identification-card text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Answers in your name</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Greets every caller as your business, in a natural voice.</p></div>
+        <div class="bg-white p-7"><i class="ph ph-calendar-check text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Books appointments</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Checks availability and schedules the job on the call.</p></div>
+        <div class="bg-white p-7"><i class="ph ph-phone-transfer text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Transfers urgent calls</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Routes emergencies and complex jobs straight to a human.</p></div>
+        <div class="bg-white p-7"><i class="ph ph-chat-text text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Texts call summaries</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Sends your team a transcript and summary after every call.</p></div>
+        <div class="bg-white p-7"><i class="ph ph-question text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Answers common questions</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Hours, pricing ranges, service area, what to expect.</p></div>
+        <div class="bg-white p-7"><i class="ph ph-moon-stars text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Works after hours</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Nights, weekends, holidays. The hours you usually miss.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (editorial steps) -->
+  <section id="how" class="py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <span class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">How it works</span>
+        <h2 class="mt-5 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">From ring to booked job in one call.</h2>
+      </div>
+      <div class="mt-16 space-y-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10">
+        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10">
+          <span class="font-mono text-3xl font-semibold text-cobalt/40">01</span>
+          <div><h3 class="font-display text-2xl font-semibold text-ink">A call comes in</h3><p class="mt-1 text-ink/65">Day, night, weekend, holiday. The agent answers in two rings.</p></div>
+          <i class="ph ph-phone-incoming text-3xl text-cobalt"></i>
+        </div>
+        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10" style="transition-delay:.05s">
+          <span class="font-mono text-3xl font-semibold text-cobalt/40">02</span>
+          <div><h3 class="font-display text-2xl font-semibold text-ink">The agent talks</h3><p class="mt-1 text-ink/65">It greets callers by your business name and handles the conversation naturally.</p></div>
+          <i class="ph ph-chats-circle text-3xl text-cobalt"></i>
+        </div>
+        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10" style="transition-delay:.1s">
+          <span class="font-mono text-3xl font-semibold text-cobalt/40">03</span>
+          <div><h3 class="font-display text-2xl font-semibold text-ink">It books the job</h3><p class="mt-1 text-ink/65">It checks availability and schedules the appointment while the caller is still on the line.</p></div>
+          <i class="ph ph-calendar-check text-3xl text-cobalt"></i>
+        </div>
+        <div class="reveal grid items-center gap-6 bg-paper p-8 sm:grid-cols-[auto_1fr_auto] sm:p-10" style="transition-delay:.15s">
+          <span class="font-mono text-3xl font-semibold text-cobalt/40">04</span>
+          <div><h3 class="font-display text-2xl font-semibold text-ink">It syncs to your system</h3><p class="mt-1 text-ink/65">The job, contact, and call summary land in your CRM automatically.</p></div>
+          <i class="ph ph-arrows-clockwise text-3xl text-cobalt"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO BAND (dark, animated) -->
+  <section id="demo" class="py-10 pb-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal overflow-hidden rounded-3xl bg-ink text-paper">
+        <div class="grid gap-10 p-10 sm:p-14 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
+          <div>
+            <h2 class="font-display text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">Talk to the agent right now.</h2>
+            <p class="mt-5 max-w-md text-lg leading-relaxed text-paper/70">Start a voice chat in your browser or call the demo line. Ask it anything a customer would.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <button class="btn inline-flex items-center gap-2 rounded-xl bg-cobalt px-6 py-3.5 text-sm font-semibold text-white hover:bg-cobalt-dark"><i class="ph-fill ph-microphone"></i> Start voice demo</button>
+              <a href="tel:+16125551234" class="btn inline-flex items-center gap-2 rounded-xl border border-paper/25 px-6 py-3.5 text-sm font-semibold text-paper hover:border-paper/50"><i class="ph ph-phone-call"></i> Call the demo line</a>
+            </div>
+          </div>
+          <div class="rounded-2xl border border-paper/15 bg-white/[0.04] p-6">
+            <div class="flex items-center justify-between border-b border-paper/15 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="grid h-9 w-9 place-items-center rounded-full bg-cobalt/20 text-cobalt"><i class="ph-fill ph-phone-incoming"></i></span>
+                <div><p class="text-sm font-semibold text-paper">Call in progress</p><p class="font-mono text-xs text-paper/50">Sample call</p></div>
+              </div>
+              <span class="font-mono text-xs text-cobalt">00:42</span>
+            </div>
+            <div class="mt-6 flex h-20 items-end justify-center gap-1.5" aria-hidden="true">
+              <span class="bar w-2 rounded-full bg-cobalt" style="height:70%"></span>
+              <span class="bar w-2 rounded-full bg-cobalt" style="height:95%;animation-delay:.1s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt/70" style="height:50%;animation-delay:.2s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt" style="height:100%;animation-delay:.05s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt/70" style="height:60%;animation-delay:.25s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt" style="height:85%;animation-delay:.15s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt/60" style="height:45%;animation-delay:.3s"></span>
+              <span class="bar w-2 rounded-full bg-cobalt" style="height:80%;animation-delay:.08s"></span>
+            </div>
+            <button class="btn mt-5 inline-flex items-center gap-2 text-sm font-semibold text-paper"><i class="ph-fill ph-play-circle text-2xl text-cobalt"></i> Play a sample call</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF (photo-forward) -->
+  <section class="border-y border-ink/10 bg-white py-28">
+    <div class="mx-auto grid max-w-content items-center gap-12 px-5 sm:px-8 lg:grid-cols-[.85fr_1.15fr]">
+      <div class="reveal overflow-hidden rounded-3xl border border-ink/10">
+        <img src="https://picsum.photos/seed/northline-owner-portrait/680/760" alt="Business owner" class="h-[360px] w-full object-cover sm:h-[460px]" />
+      </div>
+      <figure class="reveal" style="transition-delay:.06s">
+        <blockquote class="font-display text-3xl font-medium leading-[1.15] tracking-tight text-ink sm:text-4xl">
+          "We were missing calls every evening. The agent booked eleven jobs in our first week without us lifting a finger."
+        </blockquote>
+        <figcaption class="mt-6 text-ink/70"><span class="font-semibold text-ink">Dustin Vargas</span>, Owner, Northline Heating and Air <span class="ml-1 rounded bg-ink/5 px-1.5 py-0.5 text-[11px] font-medium text-ink/50">Illustrative</span></figcaption>
+        <div class="mt-10 grid grid-cols-3 gap-6 border-t border-ink/15 pt-8">
+          <div><p class="font-mono text-3xl font-semibold text-cobalt">11</p><p class="mt-1 text-sm text-ink/60">jobs booked, week one</p></div>
+          <div><p class="font-mono text-3xl font-semibold text-cobalt">0</p><p class="mt-1 text-sm text-ink/60">missed calls</p></div>
+          <div><p class="font-mono text-3xl font-semibold text-cobalt">48h</p><p class="mt-1 text-sm text-ink/60">to go live</p></div>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section id="industries" class="py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal flex flex-wrap items-end justify-between gap-4">
+        <h2 class="max-w-xl font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">Built for the trades that live on the phone.</h2>
+        <a href="#" class="text-sm font-semibold text-cobalt-dark hover:underline">All industries <i class="ph ph-arrow-right align-middle"></i></a>
+      </div>
+      <div class="reveal mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <a href="#" class="lift group rounded-2xl border border-cobalt/30 bg-cobalt-soft p-7">
+          <i class="ph-fill ph-wind text-2xl text-cobalt-dark"></i>
+          <h3 class="mt-4 font-display text-xl font-semibold text-ink">HVAC</h3>
+          <p class="mt-1 text-sm text-cobalt-dark">Live now</p>
+          <span class="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-cobalt-dark">View page <i class="ph ph-arrow-right transition-transform group-hover:translate-x-0.5"></i></span>
+        </a>
+        <div class="rounded-2xl border border-ink/10 bg-white p-7 opacity-70"><i class="ph ph-wrench text-2xl text-ink/45"></i><h3 class="mt-4 font-display text-xl font-semibold text-ink/70">Plumbing</h3><p class="mt-1 text-sm text-ink/45">Coming soon</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-7 opacity-70"><i class="ph ph-house-line text-2xl text-ink/45"></i><h3 class="mt-4 font-display text-xl font-semibold text-ink/70">Roofing</h3><p class="mt-1 text-sm text-ink/45">Coming soon</p></div>
+        <div class="rounded-2xl border border-ink/10 bg-white p-7 opacity-70"><i class="ph ph-lightning text-2xl text-ink/45"></i><h3 class="mt-4 font-display text-xl font-semibold text-ink/70">Electrical</h3><p class="mt-1 text-sm text-ink/45">Coming soon</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING TEASER -->
+  <section id="pricing" class="border-t border-ink/10 bg-white py-28">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal mx-auto max-w-2xl rounded-3xl border border-ink/10 bg-paper p-10 text-center sm:p-12">
+        <span class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">Pricing</span>
+        <p class="mt-5 font-display text-5xl font-semibold tracking-tight text-ink">From <span class="font-mono">$1,500</span><span class="text-2xl text-ink/50">/mo</span></p>
+        <p class="mt-4 text-ink/65">Setup quoted on a quick call. 30-day money-back guarantee. No long-term contracts.</p>
+        <a href="#demo" class="btn mt-8 inline-flex rounded-xl bg-cobalt px-6 py-3.5 text-sm font-semibold text-white hover:bg-cobalt-dark">Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-ink py-24 text-paper">
+    <div class="mx-auto max-w-content px-5 text-center sm:px-8">
+      <h2 class="reveal mx-auto max-w-3xl font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">Your phone is ringing. Make sure someone answers.</h2>
+      <div class="reveal mt-9 flex flex-wrap justify-center gap-3">
+        <a href="#demo" class="btn rounded-xl bg-cobalt px-6 py-3.5 text-sm font-semibold text-white hover:bg-cobalt-dark">Book a demo</a>
+        <a href="#demo" class="btn rounded-xl border border-paper/25 px-6 py-3.5 text-sm font-semibold text-paper hover:border-paper/50">Hear the agent</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink pb-10 text-paper/55">
+    <div class="mx-auto grid max-w-content gap-10 px-5 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
+      <div>
+        <div class="flex items-center gap-2.5 font-display text-lg font-semibold text-paper">
+          <span class="grid h-8 w-8 place-items-center rounded-lg bg-cobalt text-white"><i class="ph-fill ph-waveform"></i></span>
+          Simple Automation Labs
+        </div>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed">AI voice agents for home-services businesses across the US. Answer every call, book every job.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-paper">Product</p>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="#how" class="hover:text-paper">How it works</a></li>
+          <li><a href="#industries" class="hover:text-paper">Industries</a></li>
+          <li><a href="#pricing" class="hover:text-paper">Pricing</a></li>
+          <li><a href="#demo" class="hover:text-paper">Book a demo</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-paper">Contact</p>
+        <ul class="mt-4 space-y-2.5 text-sm">
+          <li><a href="mailto:hello@simpleautomationlabs.com" class="hover:text-paper">hello@simpleautomationlabs.com</a></li>
+          <li><a href="tel:+16125551234" class="hover:text-paper">(612) 555-1234</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mx-auto max-w-content border-t border-paper/10 px-5 pt-6 text-xs sm:px-8">© 2026 Simple Automation Labs. All rights reserved.</div>
+  </footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  const nav = document.getElementById('nav');
+  const navIO = new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { nav.classList.remove('bg-paper/85','backdrop-blur','border-b','border-ink/10','shadow-sm'); }
+    else { nav.classList.add('bg-paper/85','backdrop-blur','border-b','border-ink/10','shadow-sm'); }
+  }, { rootMargin: '-70px 0px 0px 0px' });
+  navIO.observe(document.getElementById('top-sentinel'));
+</script>
+</body>
+</html>

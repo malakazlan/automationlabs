@@ -1,0 +1,38 @@
+{
+  "_note": "Image set for Simple Automation Labs mockups. Style is kept consistent across the set: warm editorial photography, cool blue accents, real US home-services context, no baked text.",
+  "style_suffix": "Photorealistic editorial photograph, warm natural daylight, soft diffused light, clean uncluttered composition, shallow depth of field, authentic modern American home-services context, candid and approachable, muted warm color palette with subtle cool blue accents. No text, no watermarks, no logos, no brand names, no signage.",
+  "defaults": { "model": "gpt-image-2", "size": "1536x1024", "quality": "medium", "output_format": "png" },
+  "images": [
+    {
+      "id": "home-hero",
+      "quality": "high",
+      "prompt": "A confident, friendly American HVAC technician in his late 30s wearing a clean navy work uniform, standing beside a white service van parked in a suburban driveway on a bright morning, holding a tablet and looking toward the camera with a genuine relaxed smile. Green lawn and a tidy house softly out of focus behind him. Shot at 35mm f/2.8, environmental portrait framing, golden morning light."
+    },
+    {
+      "id": "hvac-hero",
+      "quality": "high",
+      "prompt": "A residential air-conditioning condenser unit beside a suburban home, with a kneeling HVAC technician in a navy uniform checking the unit with a gauge, focused and calm. Early morning golden light, dewy grass, soft shadows. Shot at 35mm f/4.0, environmental documentary style."
+    },
+    {
+      "id": "owner-portrait",
+      "size": "1024x1536",
+      "prompt": "A warm, authentic portrait of an American small-business owner, a woman in her mid 40s who runs a family HVAC company, standing in a tidy garage workshop with tools and shelving softly blurred behind her, arms relaxed, genuine confident smile. Diffused window light from the left. Shot at 85mm f/2.0, head and shoulders."
+    },
+    {
+      "id": "technician-on-phone",
+      "prompt": "An American HVAC technician in a navy uniform standing outside near a home heating unit, holding a phone to his ear and listening attentively while jotting on a small notepad. Soft overcast daylight. Shot at 50mm f/2.8, natural candid moment."
+    },
+    {
+      "id": "dispatch-desk",
+      "prompt": "A calm, tidy small-office dispatch desk for a home-services company: a headset resting beside a closed laptop, a coffee mug, a potted plant, and a window with soft daylight. No people, no readable screens. Shot at 35mm f/4.0, clean lifestyle still life."
+    },
+    {
+      "id": "about-team",
+      "prompt": "Three friendly American home-services professionals in clean navy uniforms standing together in front of two white service vans in a sunny lot, candid and relaxed, mid conversation. Warm late-afternoon light. Shot at 35mm f/2.8, environmental group portrait."
+    },
+    {
+      "id": "og-cover",
+      "prompt": "A cinematic wide establishing shot of a white home-services van parked outside a suburban American house at golden hour, warm light raking across the scene, generous empty sky on the upper left for overlay space. Shot at 24mm f/5.6, clean and aspirational."
+    }
+  ]
+}

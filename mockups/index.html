@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Automation Labs - Design directions</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Geist', system-ui, sans-serif; background: #0c0c0e; color: #ececea; }
+  .frame-wrap { position: relative; overflow: hidden; border-radius: 14px; height: 360px; }
+  .frame-wrap iframe { width: 1280px; height: 1440px; border: 0; transform: scale(.39); transform-origin: top left; pointer-events: none; }
+  .frame-cover { position: absolute; inset: 0; }
+</style>
+</head>
+<body class="antialiased">
+  <header class="mx-auto max-w-6xl px-6 pt-16 pb-8">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-white/40">Simple Automation Labs</p>
+    <h1 class="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">Three homepage directions</h1>
+    <p class="mt-4 max-w-2xl text-lg text-white/60">Same content and structure, three brand moods. Open each full-screen, scroll the whole page, then tell me which one feels right. You can also mix: keep one as the base and pull an element from another.</p>
+  </header>
+
+  <!-- Featured blend -->
+  <section class="mx-auto mb-10 max-w-6xl px-6">
+    <div class="rounded-2xl border border-cobalt/40 bg-white/[0.04] p-4" style="border-color:rgba(29,78,216,.45)">
+      <div class="grid gap-5 lg:grid-cols-[1.1fr_1fr]">
+        <div class="frame-wrap border border-white/10" style="height:420px">
+          <iframe src="direction-d-blend.html" title="Blend preview" loading="lazy"></iframe>
+          <a href="direction-d-blend.html" class="frame-cover" aria-label="Open Blend"></a>
+        </div>
+        <div class="px-1 py-2">
+          <span class="inline-flex rounded-full px-2.5 py-1 text-xs font-semibold" style="background:#1D4ED8;color:#fff">Recommended blend</span>
+          <h2 class="mt-3 text-2xl font-semibold">D · Operator x Dispatch</h2>
+          <p class="mt-3 text-sm leading-relaxed text-white/65">A's clean, trustworthy structure on a warm paper canvas, with C's editorial headlines and photography, plus the live animated call from B. Adds a richer "What the agent handles" section. One accent: cobalt. Ember is a one-line swap.</p>
+          <a href="direction-d-blend.html" class="mt-5 inline-flex rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90">Open full screen</a>
+          <p class="mt-4 text-xs text-white/40">The three originals below are kept for reference.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="mx-auto grid max-w-6xl gap-6 px-6 pb-24 lg:grid-cols-3">
+    <!-- A -->
+    <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+      <div class="frame-wrap border border-white/10">
+        <iframe src="direction-a-operator.html" title="Operator preview" loading="lazy"></iframe>
+        <a href="direction-a-operator.html" class="frame-cover" aria-label="Open Operator"></a>
+      </div>
+      <div class="mt-4 px-1">
+        <div class="flex items-center gap-2">
+          <span class="h-3 w-3 rounded-full" style="background:#1D4ED8"></span>
+          <h2 class="text-xl font-semibold">A · Operator</h2>
+        </div>
+        <p class="mt-2 text-sm leading-relaxed text-white/60">Light, cream and ink, cobalt accent, Geist. Reads as a serious software company. Trust-first. My recommendation.</p>
+        <a href="direction-a-operator.html" class="mt-4 inline-flex rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90">Open full screen</a>
+      </div>
+    </section>
+
+    <!-- B -->
+    <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+      <div class="frame-wrap border border-white/10">
+        <iframe src="direction-b-controlroom.html" title="Control Room preview" loading="lazy"></iframe>
+        <a href="direction-b-controlroom.html" class="frame-cover" aria-label="Open Control Room"></a>
+      </div>
+      <div class="mt-4 px-1">
+        <div class="flex items-center gap-2">
+          <span class="h-3 w-3 rounded-full" style="background:#A3E635"></span>
+          <h2 class="text-xl font-semibold">B · Control Room</h2>
+        </div>
+        <p class="mt-2 text-sm leading-relaxed text-white/60">Dark, warm near-black, signal-lime accent, Space Grotesk and mono. Live, always-on, cutting-edge AI.</p>
+        <a href="direction-b-controlroom.html" class="mt-4 inline-flex rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90">Open full screen</a>
+      </div>
+    </section>
+
+    <!-- C -->
+    <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+      <div class="frame-wrap border border-white/10">
+        <iframe src="direction-c-dispatch.html" title="Dispatch preview" loading="lazy"></iframe>
+        <a href="direction-c-dispatch.html" class="frame-cover" aria-label="Open Dispatch"></a>
+      </div>
+      <div class="mt-4 px-1">
+        <div class="flex items-center gap-2">
+          <span class="h-3 w-3 rounded-full" style="background:#C2410C"></span>
+          <h2 class="text-xl font-semibold">C · Dispatch</h2>
+        </div>
+        <p class="mt-2 text-sm leading-relaxed text-white/60">Light, bone paper, ember-orange accent, Bricolage Grotesque, photography-forward. Warm and human, these people get my trade.</p>
+        <a href="direction-c-dispatch.html" class="mt-4 inline-flex rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90">Open full screen</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mx-auto max-w-6xl px-6 pb-16 text-sm text-white/40">
+    <p>Mockups only. Built with Tailwind, Phosphor icons, and the taste + Emil craft skills. Images are placeholders. Real fonts will be self-hosted in the production Next.js build.</p>
+  </footer>
+</body>
+</html>
