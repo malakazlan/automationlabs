@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Missed-call revenue calculator - Simple Automation Labs</title>
+<meta name="description" content="See how much revenue missed calls cost your HVAC business each month and year, and how much an AI agent could recover." />
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="shared-config.js"></script>
+<link rel="stylesheet" href="shared.css" />
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+</head>
+<body class="font-sans antialiased selection:bg-cobalt/15">
+
+  <div id="site-header"></div>
+
+  <section class="pt-[108px] pb-24 sm:pt-[132px]">
+    <div class="mx-auto max-w-content px-5 sm:px-8">
+      <div class="reveal max-w-2xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-cobalt-soft px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cobalt-dark">Free calculator</span>
+        <h1 class="mt-5 font-display text-[2.6rem] font-semibold leading-[1.0] tracking-tight text-ink sm:text-6xl">What are missed calls costing you?</h1>
+        <p class="mt-6 text-lg leading-relaxed text-ink/70 sm:text-xl">Move the sliders to match your business. We will estimate the revenue walking out the door, and what an agent could recover.</p>
+      </div>
+
+      <div class="reveal mt-14 grid gap-8 lg:grid-cols-[1fr_1fr] lg:gap-12" style="transition-delay:.06s">
+        <!-- inputs -->
+        <div class="rounded-3xl border border-ink/10 bg-white p-7 shadow-xl shadow-ink/5 sm:p-8">
+          <div class="space-y-8">
+            <div>
+              <div class="flex items-baseline justify-between"><label for="calls" class="text-sm font-medium text-ink">Calls per week</label><span id="callsOut" class="font-mono text-lg font-semibold text-cobalt">100</span></div>
+              <input id="calls" type="range" min="20" max="500" step="5" value="100" class="mt-3 w-full accent-cobalt" />
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between"><label for="missed" class="text-sm font-medium text-ink">Percent of calls missed</label><span id="missedOut" class="font-mono text-lg font-semibold text-cobalt">25%</span></div>
+              <input id="missed" type="range" min="0" max="60" step="1" value="25" class="mt-3 w-full accent-cobalt" />
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between"><label for="value" class="text-sm font-medium text-ink">Average job value</label><span id="valueOut" class="font-mono text-lg font-semibold text-cobalt">$1,500</span></div>
+              <input id="value" type="range" min="200" max="5000" step="50" value="1500" class="mt-3 w-full accent-cobalt" />
+            </div>
+            <div>
+              <div class="flex items-baseline justify-between"><label for="close" class="text-sm font-medium text-ink">Of answered calls, how many book</label><span id="closeOut" class="font-mono text-lg font-semibold text-cobalt">40%</span></div>
+              <input id="close" type="range" min="10" max="80" step="1" value="40" class="mt-3 w-full accent-cobalt" />
+            </div>
+          </div>
+          <p class="mt-8 text-xs text-ink/45">Estimates only. Based on a 4.33-week month and the close rate you set.</p>
+        </div>
+
+        <!-- results -->
+        <div class="flex flex-col gap-4">
+          <div class="rounded-3xl bg-ink p-8 text-paper">
+            <p class="text-sm font-medium text-paper/60">Estimated revenue lost to missed calls</p>
+            <p class="mt-2 font-mono text-5xl font-semibold text-cobalt sm:text-6xl"><span id="monthly">$64,995</span><span class="text-2xl text-paper/50">/mo</span></p>
+            <p class="mt-3 text-paper/70">That is <span id="annual" class="font-mono font-semibold text-paper">$779,940</span> a year, from <span id="missedCount" class="font-mono font-semibold text-paper">108</span> missed calls a month.</p>
+          </div>
+          <div class="rounded-3xl border border-cobalt/30 bg-cobalt-soft p-8">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 grid h-9 w-9 flex-shrink-0 place-items-center rounded-full bg-cobalt text-white"><i class="ph-fill ph-trend-up"></i></span>
+              <div>
+                <p class="font-display text-xl font-semibold text-ink">An agent answers the calls you are missing.</p>
+                <p class="mt-2 text-ink/70">Most of that number is recoverable. The agent picks up every call, books the job, and syncs it to your CRM.</p>
+                <div class="mt-5 flex flex-wrap gap-3">
+                  <a href="book-a-demo.html" class="btn inline-flex rounded-xl bg-cobalt px-5 py-3 text-sm font-semibold text-white hover:bg-cobalt-dark">Book a demo</a>
+                  <a href="how-it-works.html" class="btn inline-flex rounded-xl border border-ink/15 bg-white px-5 py-3 text-sm font-semibold text-ink hover:border-ink/30">See how it works</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer"></div>
+  <script src="shared.js"></script>
+  <script>
+    (function () {
+      var WPM = 4.333;
+      var usd = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      var num = new Intl.NumberFormat('en-US');
+      var calls = document.getElementById('calls'), missed = document.getElementById('missed'), value = document.getElementById('value'), close = document.getElementById('close');
+      function recalc() {
+        var c = +calls.value, m = +missed.value / 100, v = +value.value, k = +close.value / 100;
+        var missedPerMonth = c * m * WPM;
+        var monthly = (c * m * k) * v * WPM;
+        document.getElementById('callsOut').textContent = num.format(c);
+        document.getElementById('missedOut').textContent = missed.value + '%';
+        document.getElementById('valueOut').textContent = usd.format(v);
+        document.getElementById('closeOut').textContent = close.value + '%';
+        document.getElementById('monthly').textContent = usd.format(monthly);
+        document.getElementById('annual').textContent = usd.format(monthly * 12);
+        document.getElementById('missedCount').textContent = num.format(Math.round(missedPerMonth));
+      }
+      [calls, missed, value, close].forEach(function (el) { el.addEventListener('input', recalc); });
+      recalc();
+    })();
+  </script>
+</body>
+</html>
