@@ -9,6 +9,15 @@ __pycache__/
 *.pyc
 .venv/
 
+# Node / Next.js (the app is scaffolded into this repo root)
+node_modules/
+.next/
+out/
+build/
+.vercel/
+*.tsbuildinfo
+next-env.d.ts
+
 # OS
 Thumbs.db
 .DS_Store

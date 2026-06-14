@@ -1,0 +1,6 @@
+# Normalize line endings to LF in the repo (Vercel/Linux deploy target)
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
