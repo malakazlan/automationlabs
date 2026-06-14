@@ -47,3 +47,17 @@ body { background: #F6F4F0; color: #191714; -webkit-font-smoothing: antialiased;
 .marquee-word:hover { color: rgba(25, 23, 20, .85); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; flex-wrap: wrap; justify-content: center; gap: 2rem; } }
+
+/* Voice agent overlay (Alexa-style demo) */
+.voice-overlay { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 1.5rem; background: rgba(25, 23, 20, .55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); opacity: 0; transition: opacity .25s var(--ease-out); }
+.voice-overlay.open { display: flex; opacity: 1; }
+.voice-orb { position: relative; width: 168px; height: 168px; display: grid; place-items: center; }
+.voice-orb::before, .voice-orb::after { content: ""; position: absolute; inset: 0; border-radius: 9999px; background: radial-gradient(circle, rgba(29, 78, 216, .40), rgba(29, 78, 216, 0) 70%); animation: orb-pulse 2.6s var(--ease-out) infinite; }
+.voice-orb::after { animation-delay: 1.3s; }
+@keyframes orb-pulse { 0% { transform: scale(.65); opacity: .75; } 100% { transform: scale(1.7); opacity: 0; } }
+.voice-core { position: relative; width: 104px; height: 104px; border-radius: 9999px; background: linear-gradient(135deg, #2a5be6, #1e3fae); display: grid; place-items: center; color: #fff; box-shadow: 0 16px 48px rgba(29, 78, 216, .5); }
+.voice-eq { display: flex; align-items: flex-end; gap: 3px; height: 30px; }
+.voice-eq span { width: 4px; border-radius: 9999px; background: rgba(255, 255, 255, .9); animation: voice-eq 1s var(--ease-out) infinite alternate; }
+@keyframes voice-eq { from { height: 20%; } to { height: 100%; } }
+.voice-overlay.listening .voice-core { background: linear-gradient(135deg, #1e3fae, #16308a); }
+@media (prefers-reduced-motion: reduce) { .voice-orb::before, .voice-orb::after { animation: none; opacity: .25; } .voice-eq span { animation: none; height: 60%; } .voice-overlay { transition: none; } }

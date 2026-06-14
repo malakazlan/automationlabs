@@ -108,5 +108,68 @@
         max: 6, speed: 500, glare: true, "max-glare": 0.12, scale: 1.01, gyroscope: false,
       });
     }
+
+    // Voice agent overlay (Alexa-style demo preview)
+    const overlay = document.createElement("div");
+    overlay.className = "voice-overlay";
+    overlay.id = "voiceOverlay";
+    overlay.setAttribute("role", "dialog");
+    overlay.setAttribute("aria-modal", "true");
+    overlay.setAttribute("aria-label", "Voice agent demo");
+    overlay.innerHTML = `
+      <div class="relative w-full max-w-md rounded-3xl border border-ink/10 bg-white p-8 text-center shadow-2xl">
+        <button id="voiceClose" class="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-ink/50 hover:bg-ink/5" aria-label="Close"><i class="ph ph-x text-lg"></i></button>
+        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">Talk to our agent</p>
+        <h3 class="mt-2 font-display text-2xl font-semibold text-ink">Simple Automation Labs</h3>
+        <div class="mt-7 flex justify-center"><div class="voice-orb"><div class="voice-core"><div class="voice-eq"><span></span><span></span><span></span><span></span><span></span></div></div></div></div>
+        <p id="voiceStatus" class="mt-7 text-sm font-semibold text-cobalt-dark">Connecting</p>
+        <p id="voiceLine" class="mx-auto mt-2 min-h-[52px] max-w-xs text-ink/70"></p>
+        <button id="voiceEnd" class="btn mt-4 inline-flex items-center gap-2 rounded-xl border border-ink/15 px-5 py-2.5 text-sm font-semibold text-ink hover:border-ink/30"><i class="ph ph-phone-x"></i> End demo</button>
+        <p class="mt-5 text-xs text-ink/45">Preview of the live voice agent. Full two-way voice connects in the production site.</p>
+      </div>`;
+    document.body.appendChild(overlay);
+
+    const vStatus = overlay.querySelector("#voiceStatus");
+    const vLine = overlay.querySelector("#voiceLine");
+    const script = [
+      { s: "Speaking", t: "Hi, I am the Simple Automation Labs agent. Ask me how we handle your calls." },
+      { s: "Listening", t: "How fast can you go live?" },
+      { s: "Speaking", t: "Most HVAC teams are answering within 48 hours, with no change to your phone system." },
+      { s: "Listening", t: "Does it book into ServiceTitan?" },
+      { s: "Speaking", t: "Yes. It books the job into ServiceTitan while the caller is still on the line." },
+    ];
+    let timers = [];
+    function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+    function step(i) {
+      if (i >= script.length) { vStatus.textContent = "Ready"; vLine.textContent = "Ask me anything."; overlay.classList.remove("listening"); return; }
+      const turn = script[i];
+      vStatus.textContent = turn.s;
+      vLine.textContent = turn.t;
+      overlay.classList.toggle("listening", turn.s === "Listening");
+      timers.push(setTimeout(() => step(i + 1), 2800));
+    }
+    function openVoice(e) {
+      if (e) e.preventDefault();
+      overlay.classList.add("open");
+      document.body.style.overflow = "hidden";
+      vStatus.textContent = "Connecting";
+      vLine.textContent = "";
+      clearTimers();
+      timers.push(setTimeout(() => step(0), 900));
+    }
+    function closeVoice() { overlay.classList.remove("open", "listening"); document.body.style.overflow = ""; clearTimers(); }
+
+    overlay.querySelector("#voiceClose").addEventListener("click", closeVoice);
+    overlay.querySelector("#voiceEnd").addEventListener("click", closeVoice);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) closeVoice(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeVoice(); });
+
+    // Wire any "Hear the agent" / "Start voice demo" control to the overlay
+    document.querySelectorAll("a, button").forEach((el) => {
+      const label = (el.textContent || "").trim().toLowerCase();
+      if (label.includes("hear the agent") || label.includes("start voice demo")) {
+        el.addEventListener("click", openVoice);
+      }
+    });
   });
 })();
