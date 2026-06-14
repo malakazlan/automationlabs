@@ -1,0 +1,14 @@
+{
+  "_note": "3D isometric icon set for the 'How the AI works' orbit. Transparent PNG via gpt-image-1.5. One consistent style across all six.",
+  "out_subdir": "icons",
+  "style_suffix": "Rendered as a single 3D isometric app icon, smooth rounded geometry, soft matte and subtle glossy surfaces, cobalt blue and clean white with a small warm amber highlight, gentle studio lighting, soft contact shadow, centered, floating on a fully transparent background. Consistent style, modern and premium. No text, no letters, no words, no background, one object only.",
+  "defaults": { "model": "gpt-image-1.5", "size": "1024x1024", "quality": "medium", "transparent": true },
+  "images": [
+    { "id": "icon-services", "prompt": "A 3D isometric icon of an open catalog booklet with a small price tag, representing a company's services and pricing." },
+    { "id": "icon-area", "prompt": "A 3D isometric icon of a glossy map location pin standing on a small circular base, representing a service area." },
+    { "id": "icon-calendar", "prompt": "A 3D isometric icon of a calendar with a single checkmark on it, representing live scheduling." },
+    { "id": "icon-escalation", "prompt": "A 3D isometric icon of a rounded shield with an exclamation mark, representing emergency escalation and priority routing." },
+    { "id": "icon-voice", "prompt": "A 3D isometric icon of a rounded microphone with a small sound wave beside it, representing a natural human voice." },
+    { "id": "icon-security", "prompt": "A 3D isometric icon of a closed padlock combined with a shield, representing encryption and privacy." }
+  ]
+}

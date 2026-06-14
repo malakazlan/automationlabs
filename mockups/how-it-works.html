@@ -122,21 +122,60 @@
     </div>
   </section>
 
-  <!-- C. HOW THE AGENT KNOWS YOUR BUSINESS -->
+  <!-- C. HOW THE AGENT KNOWS YOUR BUSINESS (orbit) -->
   <section class="border-y border-ink/10 bg-white py-28">
     <div class="mx-auto max-w-content px-5 sm:px-8">
-      <div class="reveal max-w-2xl">
-        <span class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">How the AI works</span>
-        <h2 class="mt-5 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">It is trained on your business, not a generic script.</h2>
-        <p class="mt-5 text-lg leading-relaxed text-ink/70">Before it answers a single call, the agent knows how you run. That is the difference between a robot reading a menu and something that books jobs.</p>
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div class="reveal">
+          <span class="text-xs font-semibold uppercase tracking-[0.16em] text-cobalt-dark">How the AI works</span>
+          <h2 class="mt-5 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">Everything you run, revolving around one agent.</h2>
+          <p class="mt-5 text-lg leading-relaxed text-ink/70">Before it answers a single call, the agent knows how you operate. That is the difference between a robot reading a menu and something that actually books jobs.</p>
+          <p class="mt-4 hidden text-sm text-ink/45 lg:block">Hover the orbit to pause it.</p>
+        </div>
+
+        <!-- desktop orbit -->
+        <div class="reveal hidden lg:block" style="transition-delay:.06s">
+          <div class="orbit">
+            <div class="orbit-ring"></div>
+            <div class="orbit-ring inner"></div>
+            <div class="orbit-center">
+              <div class="flex h-full w-full flex-col items-center justify-center rounded-full bg-cobalt text-white shadow-xl shadow-cobalt/30">
+                <i class="ph-fill ph-waveform text-3xl"></i>
+                <p class="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/80">Your agent</p>
+              </div>
+            </div>
+            <div class="orbit-spin">
+              <div class="orbit-node" style="transform: rotate(0deg) translateY(-165px) rotate(0deg);">
+                <div class="orbit-counter"><div class="grid h-[68px] w-[68px] place-items-center rounded-2xl border border-ink/10 bg-white shadow-lg shadow-ink/5"><img src="assets/icons/icon-calendar.png" alt="" class="h-12 w-12" /></div><span class="text-[11px] font-semibold leading-tight text-ink/70">Live calendar</span></div>
+              </div>
+              <div class="orbit-node" style="transform: rotate(60deg) translateY(-165px) rotate(-60deg);">
+                <div class="orbit-counter"><div class="grid h-[68px] w-[68px] place-items-center rounded-2xl border border-ink/10 bg-white shadow-lg shadow-ink/5"><img src="assets/icons/icon-area.png" alt="" class="h-12 w-12" /></div><span class="text-[11px] font-semibold leading-tight text-ink/70">Service area</span></div>
+              </div>
+              <div class="orbit-node" style="transform: rotate(120deg) translateY(-165px) rotate(-120deg);">
+                <div class="orbit-counter"><div class="grid h-[68px] w-[68px] place-items-center rounded-2xl border border-ink/10 bg-white shadow-lg shadow-ink/5"><img src="assets/icons/icon-escalation.png" alt="" class="h-12 w-12" /></div><span class="text-[11px] font-semibold leading-tight text-ink/70">Escalation</span></div>
+              </div>
+              <div class="orbit-node" style="transform: rotate(180deg) translateY(-165px) rotate(-180deg);">
+                <div class="orbit-counter"><div class="grid h-[68px] w-[68px] place-items-center rounded-2xl border border-ink/10 bg-white shadow-lg shadow-ink/5"><img src="assets/icons/icon-security.png" alt="" class="h-12 w-12" /></div><span class="text-[11px] font-semibold leading-tight text-ink/70">Encrypted</span></div>
+              </div>
+              <div class="orbit-node" style="transform: rotate(240deg) translateY(-165px) rotate(-240deg);">
+                <div class="orbit-counter"><div class="grid h-[68px] w-[68px] place-items-center rounded-2xl border border-ink/10 bg-white shadow-lg shadow-ink/5"><img src="assets/icons/icon-voice.png" alt="" class="h-12 w-12" /></div><span class="text-[11px] font-semibold leading-tight text-ink/70">Your voice</span></div>
+              </div>
+              <div class="orbit-node" style="transform: rotate(300deg) translateY(-165px) rotate(-300deg);">
+                <div class="orbit-counter"><div class="grid h-[68px] w-[68px] place-items-center rounded-2xl border border-ink/10 bg-white shadow-lg shadow-ink/5"><img src="assets/icons/icon-services.png" alt="" class="h-12 w-12" /></div><span class="text-[11px] font-semibold leading-tight text-ink/70">Services</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="reveal mt-12 grid gap-px overflow-hidden rounded-3xl border border-ink/10 bg-ink/10 sm:grid-cols-2 lg:grid-cols-3" style="transition-delay:.05s">
-        <div class="bg-white p-7"><i class="ph ph-book-open-text text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Your services and pricing</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Repairs, installs, maintenance plans, and your price ranges, in its own words.</p></div>
-        <div class="bg-white p-7"><i class="ph ph-map-pin-area text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Your service area</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">It checks the caller is inside your zone before it books anything.</p></div>
-        <div class="bg-white p-7"><i class="ph ph-calendar-dots text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Your live calendar</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">It offers real open slots and writes the job back the moment it books.</p></div>
-        <div class="bg-white p-7"><i class="ph ph-warning-octagon text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Your escalation rules</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">No heat in winter or a gas smell routes straight to your on-call tech.</p></div>
-        <div class="bg-white p-7"><i class="ph ph-microphone-stage text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Your voice and tone</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Natural speech, your business name, the way your best CSR would answer.</p></div>
-        <div class="bg-white p-7"><i class="ph ph-lock-key text-2xl text-cobalt"></i><h3 class="mt-4 text-lg font-semibold text-ink">Encrypted and consent-aware</h3><p class="mt-2 text-sm leading-relaxed text-ink/65">Calls are encrypted, recording is disclosed, and sensitive data is handled with care.</p></div>
+
+      <!-- mobile / reduced-motion fallback grid -->
+      <div class="reveal mt-12 grid gap-4 sm:grid-cols-2 lg:hidden">
+        <div class="flex gap-4 rounded-2xl border border-ink/10 bg-white p-5"><img src="assets/icons/icon-services.png" alt="" class="h-12 w-12 flex-shrink-0" /><div><h3 class="font-semibold text-ink">Your services and pricing</h3><p class="mt-1 text-sm text-ink/65">Repairs, installs, maintenance plans, and your price ranges.</p></div></div>
+        <div class="flex gap-4 rounded-2xl border border-ink/10 bg-white p-5"><img src="assets/icons/icon-area.png" alt="" class="h-12 w-12 flex-shrink-0" /><div><h3 class="font-semibold text-ink">Your service area</h3><p class="mt-1 text-sm text-ink/65">It checks the caller is inside your zone before booking.</p></div></div>
+        <div class="flex gap-4 rounded-2xl border border-ink/10 bg-white p-5"><img src="assets/icons/icon-calendar.png" alt="" class="h-12 w-12 flex-shrink-0" /><div><h3 class="font-semibold text-ink">Your live calendar</h3><p class="mt-1 text-sm text-ink/65">It offers real open slots and writes the job back instantly.</p></div></div>
+        <div class="flex gap-4 rounded-2xl border border-ink/10 bg-white p-5"><img src="assets/icons/icon-escalation.png" alt="" class="h-12 w-12 flex-shrink-0" /><div><h3 class="font-semibold text-ink">Your escalation rules</h3><p class="mt-1 text-sm text-ink/65">No heat in winter or a gas smell routes to your on-call tech.</p></div></div>
+        <div class="flex gap-4 rounded-2xl border border-ink/10 bg-white p-5"><img src="assets/icons/icon-voice.png" alt="" class="h-12 w-12 flex-shrink-0" /><div><h3 class="font-semibold text-ink">Your voice and tone</h3><p class="mt-1 text-sm text-ink/65">Natural speech and your business name, like your best CSR.</p></div></div>
+        <div class="flex gap-4 rounded-2xl border border-ink/10 bg-white p-5"><img src="assets/icons/icon-security.png" alt="" class="h-12 w-12 flex-shrink-0" /><div><h3 class="font-semibold text-ink">Encrypted and consent-aware</h3><p class="mt-1 text-sm text-ink/65">Calls are encrypted and recording is disclosed.</p></div></div>
       </div>
     </div>
   </section>

@@ -98,13 +98,17 @@ def main() -> None:
     ap.add_argument("--force", action="store_true", help="regenerate existing images")
     ap.add_argument("--only", nargs="*", default=None, help="generate only these ids")
     ap.add_argument("--model", default=None, help="override model for all images")
+    ap.add_argument("--manifest", default=None, help="manifest filename in tools/imagegen (default manifest.json)")
     args = ap.parse_args()
 
     key = load_key()
-    spec = json.loads(MANIFEST.read_text(encoding="utf-8"))
+    manifest_path = Path(__file__).resolve().parent / args.manifest if args.manifest else MANIFEST
+    spec = json.loads(manifest_path.read_text(encoding="utf-8"))
     defaults = spec["defaults"]
     suffix = spec["style_suffix"]
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_subdir = spec.get("out_subdir", "")
+    out_root = (OUT_DIR / out_subdir) if out_subdir else OUT_DIR
+    out_root.mkdir(parents=True, exist_ok=True)
 
     items = spec["images"]
     if args.only:
@@ -115,7 +119,7 @@ def main() -> None:
     est = 0.0
     planned = []
     for item in items:
-        out = OUT_DIR / f"{item['id']}.png"
+        out = out_root / f"{item['id']}.png"
         if out.exists() and not args.force:
             print(f"  skip {out.name} (exists; use --force to redo)")
             continue
@@ -132,7 +136,7 @@ def main() -> None:
         model = args.model or item.get("model", defaults["model"])
         size = item.get("size", defaults["size"])
         prompt = f"{item['prompt']} {suffix}"
-        transparent = bool(item.get("transparent"))
+        transparent = bool(item.get("transparent", defaults.get("transparent", False)))
         print(f"- {item['id']}  [{model} {size} {quality}]")
         generate_one(key, model, prompt, size, quality, out, transparent)
 
