@@ -4,6 +4,8 @@ import { site } from "@/lib/config/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyCallBar } from "@/components/layout/StickyCallBar";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationLd } from "@/lib/seo/structured-data";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -21,6 +23,7 @@ export default function RootLayout({
       className={`${sans.variable} ${display.variable} ${mono.variable} h-full`}
     >
       <body className="min-h-full font-sans antialiased">
+        <JsonLd data={organizationLd()} />
         <Header />
         <main className="pb-14 sm:pb-0">{children}</main>
         <Footer />
