@@ -25,7 +25,12 @@ export function VoiceOverlay() {
   };
 
   useEffect(() => {
-    const onOpen = () => setOpen(true);
+    const onOpen = () => {
+      setOpen(true);
+      setStatus("Connecting");
+      setLine("");
+      setListening(false);
+    };
     window.addEventListener("sal:open-voice", onOpen);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -44,9 +49,6 @@ export function VoiceOverlay() {
       return;
     }
     document.body.style.overflow = "hidden";
-    setStatus("Connecting");
-    setLine("");
-    setListening(false);
     let i = 0;
     const step = () => {
       if (i >= SCRIPT.length) {
